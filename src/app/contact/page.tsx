@@ -5,7 +5,7 @@ const Contact = () => {
     <div className="contact-container">
       <section className="contact-section">
         <h2>Contact Me</h2>
-        <p>I'm open to new opportunities and would love to connect!</p>
+        <p>{`I'm`}open to new opportunities and would love to connect!</p>
         
         <form className="contact-form">
           <label htmlFor="name">Name</label>
