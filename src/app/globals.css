@@ -2,32 +2,315 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
+/* Global styles */
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #333;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+header {
+  background-color: #000000;
+  color: rgb(255, 255, 255);
+  padding: 15px;
+  text-align: center;
+}
+header h1 {
+ 
+    display: flex;           /* This makes the heading a flex container */
+    align-items: center;     /* Vertically centers items inside the flex container */
+    height: 1rem;            
+    font-size:35px;     
+    font-weight: bold;       
+    color: #fdf4f4; 
+    margin: 0 20px;            /* Customize the color as desired */
   }
+  .custom-heading {
+    display: flex;
+    align-items: center;
+    height: 0.3rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-top: 1.4rem; /* Adjusts spacing above the text */
+  }
+  
+  
+header ul a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Hero Section Styles */
+.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh; /* Occupies most of the viewport height */
+  background: linear-gradient(135deg, #659bd2, #310131); /* Attractive gradient */
+  color: #ffffff;
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(217, 10, 10, 0.2), transparent);
+  transform: rotate(25deg);
+  animation: spin 10s linear infinite;
+  z-index: 1;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+/* Centered alignment for the Hero Title and Subtitle */
+.hero-title, .hero-subtitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+/* Styles for the main Hero Title */
+.hero-title {
+  font-size: 2.5rem; /* Adjust for a larger heading size */
+  font-weight: bold;
+  color: #efe9e9;
+  margin-bottom: 1rem; /* Space between title and typewriter */
+  animation: fadeInDown 1s ease; /* Optional animation */
+}
+
+/* Highlighted name style */
+.hero-name {
+  background: linear-gradient(135deg, #0a1e32, #731373); /* Customize color */
+  font-weight: bold;
+  color: #a03ab5;
+  display: inline-block;
+}
+
+/* Typewriter animation styles */
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: #e4e4e4;
+  font-style: italic;
+  font-weight: 500;
+  padding-top: 0.5rem;
+  animation: fadeInUp 1s ease; /* Fade in animation */
+}
+
+/* Fade-in animations */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+.hero-button {
+  background-color: #ffffff;
+  color: #610e85;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-top: 20px;
+}
+
+.hero-button:hover {
+  background-color: #88599c;
+  color: #ffffff;
+}
+
+
+/* About Section Styles */
+.about-section {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #724195, #310131); /* Soft gradient background */
+  display: flex;
+  justify-content: center;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  max-width: 1000px;
+  gap: 30px;
+  flex-direction: row;
+}
+
+.about-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.about-image {
+  border-radius: 50%;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.about-text {
+  flex: 2;
+  color: #0b0a0a;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.about-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #0e0d0d;
+}
+
+.about-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #c7bebe;
+  margin-bottom: 20px;
+}
+
+.about-button {
+  padding: 10px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #8331b5;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.about-button:hover {
+  background-color: #54237e;
+  transform: scale(1.05);
+}
+
+
+/* contact section */
+
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #724195, #310131);
+}
+
+.contact-section {
+  background: #cdb1d2;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333333;
+}
+
+.contact-section p {
+  font-size: 1rem;
+  color: #555555;
+  margin-bottom: 2rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #333333;
+  text-align: left;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.75rem;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #82087a;
+  outline: none;
+}
+
+.contact-form button {
+  background: #991eaf;
+  color: #ffffff;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: #7b5389;
+}
+
+
+
+.footer {
+  background-color: #030303;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 }
