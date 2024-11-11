@@ -1,3 +1,6 @@
+import Footer from "@/components/footer";
+import Header from "@/components/header";
+
 export default function RootLayout({
     children,
   }: Readonly<{
@@ -5,7 +8,11 @@ export default function RootLayout({
   }>) {
     return (
       <html lang="en">
-        <body>{children}</body>
+        <body>
+          <Header />
+          {children}
+          <Footer />
+          </body>
       </html>
     );
   }
