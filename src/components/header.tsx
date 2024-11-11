@@ -1,8 +1,8 @@
 import Link from 'next/link';
 
 const Header = () => {
-  return(
-  <header>
+  return (
+    <header>
     <h1 className="custom-heading">PORTFOLIO</h1>
 
     <ul>
@@ -11,6 +11,7 @@ const Header = () => {
       <Link href="/contact">Contact</Link>
     </ul>
   </header>
-);
+  );
 }
+
 export default Header;
